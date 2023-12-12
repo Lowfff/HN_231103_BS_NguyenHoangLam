@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="inputString">Nhậpchuỗi:</label>
+    <input type="text" id="inputString" />
+    <button onclick="removeNumber()">Xoá</button>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Chuỗi ban đầu</th>
+          <th>Chuỗi sau khi xoá số</th>
+        </tr>
+      </thead>
+      <tbody id="result"></tbody>
+    </table>
+
+    <script>
+      // Gọi hàm
+      function removeNumber() {
+        // Lấy giá trị từ ô input
+        const inputElement = document.getElementById("inputString");
+        const inputString = inputElement.value;
+
+        //    Xoá hết ký tự số nhờ replace
+        const modifiedString = inputString.replace(/\d/g, "");
+
+        // Hiện thị kết quả trong bảng
+        const resultTable = document.getElementById("result");
+        result.innerHTML = `<tr><td>${inputString}</td><td>${modifiedString}</td></tr>`;
+      }
+    </script>
+  </body>
+</html>

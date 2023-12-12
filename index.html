@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Nhập vào một chuỗi số nguyên có 5 chữ Số</h2>
+    <input type="text" name="" id="inputNumber" maxlength="5" />
+    <button onclick="findNumber()">Tìm số lớn nhất và duy nhất</button>
+    <h3>Kết quả</h3>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Số lớn nhất và duy nhất</th>
+        </tr>
+      </thead>
+      <tbody id="result"></tbody>
+    </table>
+    <script>
+      // Gọi hàm
+      function findNumber() {
+        // Láy giá trị từ ô input
+        const inputElement = document.getElementById("inputNumber");
+        const inputString = inputElement.value;
+        // Chuyển chuỗi thành mảng các số nguyên
+        const numbers = inputString.split("").map(Number);
+        if (numbers.length == 5) {
+          // Sắp xếp theo thứ tự giảm dần
+          numbers.sort((a, b) => b - a);
+          // Tìm số duy nhất trong mảng
+          const resultNumber = numbers.find(
+            (num) => numbers.indexOf(num) == numbers.lastIndexOf(num)
+          );
+          // Hiển thị kết quả trong bảng
+          const result = document.getElementById("result");
+          result.innerHTML = `<tr><td>${resultNumber}</td></tr>`;
+        } else {
+          console.log("Vui lòng nhập đúng chuỗi số nguyên có 5 chữ số");
+        }
+      }
+    </script>
+  </body>
+</html>

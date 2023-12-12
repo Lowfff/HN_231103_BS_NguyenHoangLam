@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="inputString">Nhập chuỗi</label>
+    <input type="text" id="inputString" />
+    <button onclick="reverseAndDisplay()">Đảo Ngược</button>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Chuỗi</th>
+          <th>Đảo ngược</th>
+        </tr>
+      </thead>
+      <tbody id="resultTable"></tbody>
+    </table>
+    <script>
+      // Gọi hàm
+      function reverseString(str) {
+        const words = str.split(/ /);
+        const reversedWords = words.map((word) =>
+          word.split("").reverse().join("")
+        );
+        return reversedWords.join(" ");
+      }
+      // Gọi hàm
+      function reverseAndDisplay() {
+        // Lấy giá trị từ ô input
+        const inputElement = document.getElementById("inputString");
+        const inputString = inputElement.value;
+        // Gọi hàm đảo ngược và nhận chuỗi đảo ngược
+        const reversedString = reverseString(inputString);
+        // Hiển thị chuỗi gốc và đảo ngược trong bảng
+        const resultTable = document.getElementById("resultTable");
+        resultTable.innerHTML = `<tr><td>${inputString}</td><td>${reversedString}</td></tr>`;
+      }
+    </script>
+  </body>
+</html>
